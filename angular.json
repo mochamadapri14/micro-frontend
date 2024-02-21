@@ -1,7 +1,330 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1,
-  "newProjectRoot": "projects",
-  "projects": {
-  }
+	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+	"version": 1,
+	"newProjectRoot": "projects",
+	"projects": {
+		"host-app": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				}
+			},
+			"root": "projects/host-app",
+			"sourceRoot": "projects/host-app/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/host-app",
+						"index": "projects/host-app/src/index.html",
+						"main": "projects/host-app/src/main.ts",
+						"polyfills": [
+							"zone.js"
+						],
+						"tsConfig": "projects/host-app/tsconfig.app.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/host-app/src/favicon.ico",
+							"projects/host-app/src/assets"
+						],
+						"styles": [
+							"projects/host-app/src/styles.scss",
+							"node_modules/bootstrap/dist/css/bootstrap.min.css",
+							"node_modules/bootstrap-icons/font/bootstrap-icons.css"
+						],
+						"scripts": [],
+						"extraWebpackConfig": "projects/host-app/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/host-app/webpack.prod.config.js"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "host-app:build:production",
+							"extraWebpackConfig": "projects/host-app/webpack.prod.config.js"
+						},
+						"development": {
+							"browserTarget": "host-app:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4200,
+						"publicHost": "http://localhost:4200",
+						"extraWebpackConfig": "projects/host-app/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "host-app:build",
+						"extraWebpackConfig": "projects/host-app/webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						],
+						"tsConfig": "projects/host-app/tsconfig.spec.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/host-app/src/favicon.ico",
+							"projects/host-app/src/assets"
+						],
+						"styles": [
+							"projects/host-app/src/styles.scss"
+						],
+						"scripts": []
+					}
+				}
+			}
+		},
+		"grafik-app": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				}
+			},
+			"root": "projects/grafik-app",
+			"sourceRoot": "projects/grafik-app/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/grafik-app",
+						"index": "projects/grafik-app/src/index.html",
+						"main": "projects/grafik-app/src/main.ts",
+						"polyfills": [
+							"zone.js"
+						],
+						"tsConfig": "projects/grafik-app/tsconfig.app.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/grafik-app/src/favicon.ico",
+							"projects/grafik-app/src/assets"
+						],
+						"styles": [
+							"projects/grafik-app/src/styles.scss"
+						],
+						"scripts": [],
+						"extraWebpackConfig": "projects/grafik-app/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/grafik-app/webpack.prod.config.js"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "grafik-app:build:production",
+							"extraWebpackConfig": "projects/grafik-app/webpack.prod.config.js"
+						},
+						"development": {
+							"browserTarget": "grafik-app:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4001,
+						"publicHost": "http://localhost:4001",
+						"extraWebpackConfig": "projects/grafik-app/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "grafik-app:build",
+						"extraWebpackConfig": "projects/grafik-app/webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						],
+						"tsConfig": "projects/grafik-app/tsconfig.spec.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/grafik-app/src/favicon.ico",
+							"projects/grafik-app/src/assets"
+						],
+						"styles": [
+							"projects/grafik-app/src/styles.scss"
+						],
+						"scripts": []
+					}
+				}
+			}
+		},
+		"employee-app": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				}
+			},
+			"root": "projects/employee-app",
+			"sourceRoot": "projects/employee-app/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/employee-app",
+						"index": "projects/employee-app/src/index.html",
+						"main": "projects/employee-app/src/main.ts",
+						"polyfills": [
+							"zone.js"
+						],
+						"tsConfig": "projects/employee-app/tsconfig.app.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/employee-app/src/favicon.ico",
+							"projects/employee-app/src/assets"
+						],
+						"styles": [
+							"projects/employee-app/src/styles.scss"
+						],
+						"scripts": [],
+						"extraWebpackConfig": "projects/employee-app/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/employee-app/webpack.prod.config.js"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "employee-app:build:production",
+							"extraWebpackConfig": "projects/employee-app/webpack.prod.config.js"
+						},
+						"development": {
+							"browserTarget": "employee-app:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4002,
+						"publicHost": "http://localhost:4002",
+						"extraWebpackConfig": "projects/employee-app/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "employee-app:build",
+						"extraWebpackConfig": "projects/employee-app/webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						],
+						"tsConfig": "projects/employee-app/tsconfig.spec.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/employee-app/src/favicon.ico",
+							"projects/employee-app/src/assets"
+						],
+						"styles": [
+							"projects/employee-app/src/styles.scss"
+						],
+						"scripts": []
+					}
+				}
+			}
+		}
+	}
 }
