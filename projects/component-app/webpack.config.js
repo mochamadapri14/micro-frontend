@@ -10,7 +10,7 @@ sharedMappings.register(
 
 module.exports = {
   output: {
-    uniqueName: "employeeApp",
+    uniqueName: "componentApp",
     publicPath: "auto",
     scriptType: 'text/javascript'
   },
@@ -30,18 +30,20 @@ module.exports = {
       // library: { type: "module" },
 
       // For remotes (please adjust)
-      name: "employeeApp",
+      name: "componentApp",
       filename: "remoteEntry.js",
       exposes: {
-        './EmployeeModule': './projects/employee-app/src/app/components/employee/employee.module.ts',
+        // './CustomTableModule': './projects/component-app/src/app/components/custom-table/custom-table.module.ts',
+        './CustomTableComponent': './projects/component-app/src/app/components/custom-table/custom-table.component.ts',
       },
 
       // For hosts (please adjust)
-      remotes: {
-        // "hostApp": "http://localhost:4200/remoteEntry.js",
-        // "grafikApp": "http://localhost:4001/remoteEntry.js",
-        "componentApp": "http://localhost:5000/remoteEntry.js"
-      },
+      // remotes: {
+      //     "hostApp": "http://localhost:4200/remoteEntry.js",
+      //     "grafikApp": "http://localhost:4001/remoteEntry.js",
+      //     "employeeApp": "http://localhost:4002/remoteEntry.js",
+
+      // },
 
       shared: share({
         "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
@@ -49,6 +51,7 @@ module.exports = {
         "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
         "@angular/router": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
 
+        // "@angular/material": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
         ...sharedMappings.getDescriptors()
       })
 

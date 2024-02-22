@@ -39,7 +39,7 @@ module.exports = {
       // For hosts (please adjust)
       remotes: {
         "grafikApp": "http://localhost:4001/remoteEntry.js",
-        "employeeApp": "http://localhost:4002/remoteEntry.js",
+        "employeeApp": "http://localhost:4002/remoteEntry.js"
       },
 
       shared: share({
