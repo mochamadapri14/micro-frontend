@@ -1,1 +1,59 @@
-<h1>EMPLOYEE FORM PAGE</h1>
+<div class="card p-5">
+    <div class="d-flex justify-content-between">
+        <h3>EMPLOYEE FORM PAGE</h3>
+        <button class="btn btn-lg btn-close mt-2" (click)="onAction('cancel')"></button>
+    </div>
+    <div class="form mt-2">
+        <form [formGroup]="formGroup">
+            <div class="d-flex flex-column my-4">
+                <h6>Employee Name</h6>
+                <div class="input-group my-1">
+                    <input type="text" class="form-control" formControlName="employeeName" placeholder="ex: Jhone Dore">
+                </div>
+            </div>
+
+            <div class="d-flex flex-column my-4">
+                <h6>Employee Email</h6>
+                <div class="input-group my-1">
+                    <input type="text" class="form-control" formControlName="employeeEmail"
+                        placeholder="ex:jhondore@gmail.com">
+                </div>
+            </div>
+
+            <div class="d-flex flex-column my-4">
+                <h6>Employee Phone</h6>
+                <div class="input-group my-1">
+                    <input type="text" class="form-control" formControlName="employeePhone"
+                        placeholder="ex:0888-2293-2339">
+                </div>
+            </div>
+
+            <div class="card p-3 d-flex flex-column" formGroupName="employeeAddress">
+                <div class="card-title">Employee Address</div>
+                <div class="d-flex flex-column">
+                    <h6>City</h6>
+                    <div class="input-group my-1">
+                        <input type="text" class="form-control" formControlName="city" placeholder="ex:Jakarta">
+                    </div>
+                </div>
+                <div class="d-flex flex-column my-2">
+                    <h6>Street</h6>
+                    <div class="input-group my-1">
+                        <input type="text" class="form-control" formControlName="street" placeholder="ex: Jl. raya jkt">
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-outline-primary mx-2 w-100" (click)="onAction('cancel')">
+                    Cancel
+                </button>
+                <button class="btn btn-primary mx-2 w-100" (click)="onAction('submit')">
+                    Submit
+                </button>
+            </div>
+
+        </form>
+    </div>
+
+</div>

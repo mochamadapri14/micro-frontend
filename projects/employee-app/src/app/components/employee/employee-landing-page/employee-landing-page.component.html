@@ -1,4 +1,10 @@
-<h1>EMPLOYEE LANDING PAGE</h1>
-
-<!-- DATA TABLE -->
-<ng-template #dataset></ng-template>
+<div class="card p-5">
+    <h3>EMPLOYEE LANDING PAGE</h3>
+    <div class="d-flex justify-content-end my-2">
+        <button class="btn btn-md btn-outline-primary" (click)="navigateToForm(-1)">
+            <i class="bi bi-plus-square mx-1"></i> New Employee
+        </button>
+    </div>
+    <!-- DATA TABLE -->
+    <ng-template #dataset></ng-template>
+</div>

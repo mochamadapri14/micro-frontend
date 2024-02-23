@@ -21,7 +21,6 @@ export class RestService {
             case 'put':
                 return this._http.put(query, body);
             case 'delete':
-                console.log(query);
                 return this._http.delete(query);
             default:
                 return this.get(query);

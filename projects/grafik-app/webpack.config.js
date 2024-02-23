@@ -33,6 +33,7 @@ module.exports = {
       name: "grafikApp",
       filename: "remoteEntry.js",
       exposes: {
+
         './ChartDataModule': './projects/grafik-app/src/app/chart-data/chart-data.module.ts',
       },
 

@@ -141,7 +141,6 @@
 						"styles": [
 							"projects/grafik-app/src/styles.scss"
 						],
-						"scripts": [],
 						"extraWebpackConfig": "projects/grafik-app/webpack.config.js",
 						"commonChunk": false
 					},

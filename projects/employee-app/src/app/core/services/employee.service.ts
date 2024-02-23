@@ -14,6 +14,11 @@ export class EmployeeService {
         return this._restService.get(query);
     }
 
+    public getEmployeeDetail(id: number): Observable<any> {
+        const query = `${API}/users/${id}`;
+        return this._restService.get(query);
+    }
+
     public insertEmployee(body: any): Observable<any> {
         const query = `${API}/users`
         return this._restService.manage(Method.POST, query, body);
